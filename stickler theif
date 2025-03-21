@@ -1,0 +1,20 @@
+// gfg potd stickler theif
+
+int findMaxSum(vector<int>& arr) {
+        // code here
+        int n=arr.size();
+        int prev2 = 0;       
+        int prev = arr[0];   
+    
+        for (int i = 1; i < n; i++) {
+            int not_take = prev;          
+            int take = arr[i] + prev2;    
+            int curr = max(take, not_take);
+
+            prev2 = prev; 
+            prev = curr;
+        }
+        return prev;
+    }
+
+
